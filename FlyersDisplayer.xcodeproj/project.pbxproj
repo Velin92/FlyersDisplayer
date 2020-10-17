@@ -3,11 +3,12 @@
 	archiveVersion = 1;
 	classes = {
 	};
-	objectVersion = 50;
+	objectVersion = 51;
 	objects = {
 
 /* Begin PBXBuildFile section */
 		75D516E0908BC845DF392772 /* Pods_FlyersDisplayer.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 4B9FF43B95A0DC1785D9EB23 /* Pods_FlyersDisplayer.framework */; };
+		A70F7C15253B904E001CA19F /* JSONDecoder+decodeResponse.swift in Sources */ = {isa = PBXBuildFile; fileRef = A70F7C14253B904E001CA19F /* JSONDecoder+decodeResponse.swift */; };
 		A7C44C04253AA7BC0066E4D2 /* AppDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = A7C44C03253AA7BC0066E4D2 /* AppDelegate.swift */; };
 		A7C44C0B253AA7BC0066E4D2 /* Main.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = A7C44C09253AA7BC0066E4D2 /* Main.storyboard */; };
 		A7C44C0D253AA7BE0066E4D2 /* Assets.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = A7C44C0C253AA7BE0066E4D2 /* Assets.xcassets */; };
@@ -39,6 +40,7 @@
 /* Begin PBXFileReference section */
 		4B9FF43B95A0DC1785D9EB23 /* Pods_FlyersDisplayer.framework */ = {isa = PBXFileReference; explicitFileType = wrapper.framework; includeInIndex = 0; path = Pods_FlyersDisplayer.framework; sourceTree = BUILT_PRODUCTS_DIR; };
 		A0187D57256AB00C502AF344 /* Pods-FlyersDisplayer.debug.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-FlyersDisplayer.debug.xcconfig"; path = "Target Support Files/Pods-FlyersDisplayer/Pods-FlyersDisplayer.debug.xcconfig"; sourceTree = "<group>"; };
+		A70F7C14253B904E001CA19F /* JSONDecoder+decodeResponse.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "JSONDecoder+decodeResponse.swift"; sourceTree = "<group>"; };
 		A7C44C00253AA7BC0066E4D2 /* FlyersDisplayer.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = FlyersDisplayer.app; sourceTree = BUILT_PRODUCTS_DIR; };
 		A7C44C03253AA7BC0066E4D2 /* AppDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AppDelegate.swift; sourceTree = "<group>"; };
 		A7C44C0A253AA7BC0066E4D2 /* Base */ = {isa = PBXFileReference; lastKnownFileType = file.storyboard; name = Base; path = Base.lproj/Main.storyboard; sourceTree = "<group>"; };
@@ -97,8 +99,15 @@
 				A0187D57256AB00C502AF344 /* Pods-FlyersDisplayer.debug.xcconfig */,
 				C6D180BB6323FCBF668BE3EB /* Pods-FlyersDisplayer.release.xcconfig */,
 			);
-			name = Pods;
 			path = Pods;
+			sourceTree = "<group>";
+		};
+		A70F7C13253B9015001CA19F /* Extensions */ = {
+			isa = PBXGroup;
+			children = (
+				A70F7C14253B904E001CA19F /* JSONDecoder+decodeResponse.swift */,
+			);
+			path = Extensions;
 			sourceTree = "<group>";
 		};
 		A7C44BF7253AA7BC0066E4D2 = {
@@ -126,6 +135,7 @@
 		A7C44C02253AA7BC0066E4D2 /* FlyersDisplayer */ = {
 			isa = PBXGroup;
 			children = (
+				A70F7C13253B9015001CA19F /* Extensions */,
 				A7C44C54253ABFBF0066E4D2 /* Protocols */,
 				A7C44C3F253ABB4B0066E4D2 /* Views */,
 				A7C44C03253AA7BC0066E4D2 /* AppDelegate.swift */,
@@ -346,6 +356,7 @@
 			isa = PBXSourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				A70F7C15253B904E001CA19F /* JSONDecoder+decodeResponse.swift in Sources */,
 				A7C44C04253AA7BC0066E4D2 /* AppDelegate.swift in Sources */,
 				A7C44C4A253ABCD30066E4D2 /* MainCoordinator.swift in Sources */,
 				A7C44C56253ABFCE0066E4D2 /* Storyboarded.swift in Sources */,

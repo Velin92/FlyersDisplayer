@@ -1,7 +1,7 @@
 #Podfile
 use_frameworks!
 
-platform :ios, '11.0'
+platform :ios, "11.0"
 
 ## I use this to share pods between more targets whenever I need it
 def sharedPods
