@@ -8,7 +8,7 @@
 import Foundation
 import UIKit
 
-protocol FlyersDisplayerViewProtocol {
+protocol FlyersDisplayerViewProtocol: UIViewController {
     
 }
 
@@ -17,6 +17,7 @@ class FlyersDisplayerViewController: UIViewController, Storyboarded  {
     static let storyboardName = "Main"
     static let storyboardId = "FlyersDisplayerViewController"
     
+    var presenter: FlyersDisplayerPresenterProtocol!
     var filterButton: UIButton!
     
     override func viewDidLoad() {

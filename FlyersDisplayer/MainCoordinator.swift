@@ -18,6 +18,9 @@ class MainCoordinator {
     
     func start() {
         let vc = FlyersDisplayerViewController.instantiate()
+        let interactor = FlyersDisplayerInteractor(service: APIClient())
+        let presenter = FlyersDisplayerPresenter(view: vc, interactor: interactor)
+        vc.presenter = presenter
         navigationController.pushViewController(vc, animated: false)
     }
 }
