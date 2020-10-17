@@ -7,6 +7,7 @@
 	objects = {
 
 /* Begin PBXBuildFile section */
+		75D516E0908BC845DF392772 /* Pods_FlyersDisplayer.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 4B9FF43B95A0DC1785D9EB23 /* Pods_FlyersDisplayer.framework */; };
 		A7C44C04253AA7BC0066E4D2 /* AppDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = A7C44C03253AA7BC0066E4D2 /* AppDelegate.swift */; };
 		A7C44C0B253AA7BC0066E4D2 /* Main.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = A7C44C09253AA7BC0066E4D2 /* Main.storyboard */; };
 		A7C44C0D253AA7BE0066E4D2 /* Assets.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = A7C44C0C253AA7BE0066E4D2 /* Assets.xcassets */; };
@@ -36,6 +37,8 @@
 /* End PBXContainerItemProxy section */
 
 /* Begin PBXFileReference section */
+		4B9FF43B95A0DC1785D9EB23 /* Pods_FlyersDisplayer.framework */ = {isa = PBXFileReference; explicitFileType = wrapper.framework; includeInIndex = 0; path = Pods_FlyersDisplayer.framework; sourceTree = BUILT_PRODUCTS_DIR; };
+		A0187D57256AB00C502AF344 /* Pods-FlyersDisplayer.debug.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-FlyersDisplayer.debug.xcconfig"; path = "Target Support Files/Pods-FlyersDisplayer/Pods-FlyersDisplayer.debug.xcconfig"; sourceTree = "<group>"; };
 		A7C44C00253AA7BC0066E4D2 /* FlyersDisplayer.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = FlyersDisplayer.app; sourceTree = BUILT_PRODUCTS_DIR; };
 		A7C44C03253AA7BC0066E4D2 /* AppDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AppDelegate.swift; sourceTree = "<group>"; };
 		A7C44C0A253AA7BC0066E4D2 /* Base */ = {isa = PBXFileReference; lastKnownFileType = file.storyboard; name = Base; path = Base.lproj/Main.storyboard; sourceTree = "<group>"; };
@@ -51,6 +54,7 @@
 		A7C44C43253ABB6B0066E4D2 /* FlyersDisplayerViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = FlyersDisplayerViewController.swift; sourceTree = "<group>"; };
 		A7C44C49253ABCD30066E4D2 /* MainCoordinator.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = MainCoordinator.swift; sourceTree = "<group>"; };
 		A7C44C55253ABFCE0066E4D2 /* Storyboarded.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Storyboarded.swift; sourceTree = "<group>"; };
+		C6D180BB6323FCBF668BE3EB /* Pods-FlyersDisplayer.release.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-FlyersDisplayer.release.xcconfig"; path = "Target Support Files/Pods-FlyersDisplayer/Pods-FlyersDisplayer.release.xcconfig"; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -58,6 +62,7 @@
 			isa = PBXFrameworksBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				75D516E0908BC845DF392772 /* Pods_FlyersDisplayer.framework in Frameworks */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -78,6 +83,24 @@
 /* End PBXFrameworksBuildPhase section */
 
 /* Begin PBXGroup section */
+		0792A9D0C024C59D855FEBA2 /* Frameworks */ = {
+			isa = PBXGroup;
+			children = (
+				4B9FF43B95A0DC1785D9EB23 /* Pods_FlyersDisplayer.framework */,
+			);
+			name = Frameworks;
+			sourceTree = "<group>";
+		};
+		9200366E0F9B9187206B9A02 /* Pods */ = {
+			isa = PBXGroup;
+			children = (
+				A0187D57256AB00C502AF344 /* Pods-FlyersDisplayer.debug.xcconfig */,
+				C6D180BB6323FCBF668BE3EB /* Pods-FlyersDisplayer.release.xcconfig */,
+			);
+			name = Pods;
+			path = Pods;
+			sourceTree = "<group>";
+		};
 		A7C44BF7253AA7BC0066E4D2 = {
 			isa = PBXGroup;
 			children = (
@@ -85,6 +108,8 @@
 				A7C44C19253AA7BE0066E4D2 /* FlyersDisplayerTests */,
 				A7C44C24253AA7BE0066E4D2 /* FlyersDisplayerUITests */,
 				A7C44C01253AA7BC0066E4D2 /* Products */,
+				9200366E0F9B9187206B9A02 /* Pods */,
+				0792A9D0C024C59D855FEBA2 /* Frameworks */,
 			);
 			sourceTree = "<group>";
 		};
@@ -154,9 +179,11 @@
 			isa = PBXNativeTarget;
 			buildConfigurationList = A7C44C2A253AA7BE0066E4D2 /* Build configuration list for PBXNativeTarget "FlyersDisplayer" */;
 			buildPhases = (
+				6A661842AFA57F96EBD7F67B /* [CP] Check Pods Manifest.lock */,
 				A7C44BFC253AA7BC0066E4D2 /* Sources */,
 				A7C44BFD253AA7BC0066E4D2 /* Frameworks */,
 				A7C44BFE253AA7BC0066E4D2 /* Resources */,
+				16C56AF53B260BAFEC4CD584 /* [CP] Embed Pods Frameworks */,
 			);
 			buildRules = (
 			);
@@ -271,6 +298,48 @@
 			runOnlyForDeploymentPostprocessing = 0;
 		};
 /* End PBXResourcesBuildPhase section */
+
+/* Begin PBXShellScriptBuildPhase section */
+		16C56AF53B260BAFEC4CD584 /* [CP] Embed Pods Frameworks */ = {
+			isa = PBXShellScriptBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+			);
+			inputFileListPaths = (
+				"${PODS_ROOT}/Target Support Files/Pods-FlyersDisplayer/Pods-FlyersDisplayer-frameworks-${CONFIGURATION}-input-files.xcfilelist",
+			);
+			name = "[CP] Embed Pods Frameworks";
+			outputFileListPaths = (
+				"${PODS_ROOT}/Target Support Files/Pods-FlyersDisplayer/Pods-FlyersDisplayer-frameworks-${CONFIGURATION}-output-files.xcfilelist",
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+			shellPath = /bin/sh;
+			shellScript = "\"${PODS_ROOT}/Target Support Files/Pods-FlyersDisplayer/Pods-FlyersDisplayer-frameworks.sh\"\n";
+			showEnvVarsInLog = 0;
+		};
+		6A661842AFA57F96EBD7F67B /* [CP] Check Pods Manifest.lock */ = {
+			isa = PBXShellScriptBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+			);
+			inputFileListPaths = (
+			);
+			inputPaths = (
+				"${PODS_PODFILE_DIR_PATH}/Podfile.lock",
+				"${PODS_ROOT}/Manifest.lock",
+			);
+			name = "[CP] Check Pods Manifest.lock";
+			outputFileListPaths = (
+			);
+			outputPaths = (
+				"$(DERIVED_FILE_DIR)/Pods-FlyersDisplayer-checkManifestLockResult.txt",
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+			shellPath = /bin/sh;
+			shellScript = "diff \"${PODS_PODFILE_DIR_PATH}/Podfile.lock\" \"${PODS_ROOT}/Manifest.lock\" > /dev/null\nif [ $? != 0 ] ; then\n    # print error to STDERR\n    echo \"error: The sandbox is not in sync with the Podfile.lock. Run 'pod install' or update your CocoaPods installation.\" >&2\n    exit 1\nfi\n# This output is used by Xcode 'outputs' to avoid re-running this script phase.\necho \"SUCCESS\" > \"${SCRIPT_OUTPUT_FILE_0}\"\n";
+			showEnvVarsInLog = 0;
+		};
+/* End PBXShellScriptBuildPhase section */
 
 /* Begin PBXSourcesBuildPhase section */
 		A7C44BFC253AA7BC0066E4D2 /* Sources */ = {
@@ -453,6 +522,7 @@
 		};
 		A7C44C2B253AA7BE0066E4D2 /* Debug */ = {
 			isa = XCBuildConfiguration;
+			baseConfigurationReference = A0187D57256AB00C502AF344 /* Pods-FlyersDisplayer.debug.xcconfig */;
 			buildSettings = {
 				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
 				ASSETCATALOG_COMPILER_GLOBAL_ACCENT_COLOR_NAME = AccentColor;
@@ -472,6 +542,7 @@
 		};
 		A7C44C2C253AA7BE0066E4D2 /* Release */ = {
 			isa = XCBuildConfiguration;
+			baseConfigurationReference = C6D180BB6323FCBF668BE3EB /* Pods-FlyersDisplayer.release.xcconfig */;
 			buildSettings = {
 				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
 				ASSETCATALOG_COMPILER_GLOBAL_ACCENT_COLOR_NAME = AccentColor;

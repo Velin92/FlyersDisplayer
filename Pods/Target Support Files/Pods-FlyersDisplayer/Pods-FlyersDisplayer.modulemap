@@ -1,0 +1,6 @@
+framework module Pods_FlyersDisplayer {
+  umbrella header "Pods-FlyersDisplayer-umbrella.h"
+
+  export *
+  module * { export * }
+}
