@@ -65,6 +65,13 @@ extension FlyersDisplayerInteractor: FlyersDisplayerInteractorProtocol {
             fatalError("Identifier: \(identifier) doesn't exist")
         }
         let result = flyers[flyerIndex]
+        
+        //FOR POSITION I AM NOT SURE IF IS ASKED THE POSITION AMONG THE RESPONSE OR AMONG THE APP, SO I'LL USE THE ONE COMING FROM THE RESPONSE
+        AnalyticsManager.process(event: FlyerOpenEvent(retailerID: result.retailerId,
+                                                       flyerID: result.id,
+                                                       title: result.title,
+                                                       position: flyerIndex,
+                                                       firstRead: !result.isRead))
         flyers[flyerIndex].isRead = true
         return result
     }

@@ -18,7 +18,6 @@ class FlyerCollectionViewCell: UICollectionViewCell, ReusableView {
     @IBOutlet weak var titleLabel: UILabel!
     
     func setViewState(_ viewState: FlyerCellViewState) {
-        print(viewState.flyerViewState.imageUrl)
         backgroundImageView.kf.setImage(with: try? viewState.flyerViewState.imageUrl.asURL())
         titleLabel.text = viewState.flyerViewState.title
         readFlagImageView.isHidden = viewState.isReadImageHidden

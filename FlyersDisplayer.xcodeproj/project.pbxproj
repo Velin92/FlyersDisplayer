@@ -30,6 +30,10 @@
 		A78C6399253CB235009B934D /* StreamFullyEvent.swift in Sources */ = {isa = PBXBuildFile; fileRef = A78C6398253CB235009B934D /* StreamFullyEvent.swift */; };
 		A78C639E253CB2FF009B934D /* StreamFully.swift in Sources */ = {isa = PBXBuildFile; fileRef = A78C639D253CB2FF009B934D /* StreamFully.swift */; };
 		A78C63A3253CB5B6009B934D /* Encodable+asDictionary.swift in Sources */ = {isa = PBXBuildFile; fileRef = A78C63A2253CB5B6009B934D /* Encodable+asDictionary.swift */; };
+		A78C63B1253CBC1A009B934D /* FlyerOpenEvent.swift in Sources */ = {isa = PBXBuildFile; fileRef = A78C63B0253CBC1A009B934D /* FlyerOpenEvent.swift */; };
+		A78C63B6253CBC42009B934D /* FlyerSessionEvent.swift in Sources */ = {isa = PBXBuildFile; fileRef = A78C63B5253CBC42009B934D /* FlyerSessionEvent.swift */; };
+		A78C63BE253CC350009B934D /* Encodable+StreamFully.swift in Sources */ = {isa = PBXBuildFile; fileRef = A78C63BD253CC350009B934D /* Encodable+StreamFully.swift */; };
+		A78C63C3253CC3E2009B934D /* AnalyticsManager.swift in Sources */ = {isa = PBXBuildFile; fileRef = A78C63C2253CC3E2009B934D /* AnalyticsManager.swift */; };
 		A7C44C04253AA7BC0066E4D2 /* AppDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = A7C44C03253AA7BC0066E4D2 /* AppDelegate.swift */; };
 		A7C44C0B253AA7BC0066E4D2 /* Main.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = A7C44C09253AA7BC0066E4D2 /* Main.storyboard */; };
 		A7C44C0D253AA7BE0066E4D2 /* Assets.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = A7C44C0C253AA7BE0066E4D2 /* Assets.xcassets */; };
@@ -83,6 +87,10 @@
 		A78C6398253CB235009B934D /* StreamFullyEvent.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = StreamFullyEvent.swift; sourceTree = "<group>"; };
 		A78C639D253CB2FF009B934D /* StreamFully.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = StreamFully.swift; sourceTree = "<group>"; };
 		A78C63A2253CB5B6009B934D /* Encodable+asDictionary.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "Encodable+asDictionary.swift"; sourceTree = "<group>"; };
+		A78C63B0253CBC1A009B934D /* FlyerOpenEvent.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = FlyerOpenEvent.swift; sourceTree = "<group>"; };
+		A78C63B5253CBC42009B934D /* FlyerSessionEvent.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = FlyerSessionEvent.swift; sourceTree = "<group>"; };
+		A78C63BD253CC350009B934D /* Encodable+StreamFully.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "Encodable+StreamFully.swift"; sourceTree = "<group>"; };
+		A78C63C2253CC3E2009B934D /* AnalyticsManager.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AnalyticsManager.swift; sourceTree = "<group>"; };
 		A7C44C00253AA7BC0066E4D2 /* FlyersDisplayer.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = FlyersDisplayer.app; sourceTree = BUILT_PRODUCTS_DIR; };
 		A7C44C03253AA7BC0066E4D2 /* AppDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AppDelegate.swift; sourceTree = "<group>"; };
 		A7C44C0A253AA7BC0066E4D2 /* Base */ = {isa = PBXFileReference; lastKnownFileType = file.storyboard; name = Base; path = Base.lproj/Main.storyboard; sourceTree = "<group>"; };
@@ -150,6 +158,7 @@
 				A70F7C14253B904E001CA19F /* JSONDecoder+decodeResponse.swift */,
 				A78C633D253C4979009B934D /* UICollectionView+dequeueReusableCell.swift */,
 				A78C63A2253CB5B6009B934D /* Encodable+asDictionary.swift */,
+				A78C63BD253CC350009B934D /* Encodable+StreamFully.swift */,
 			);
 			path = Extensions;
 			sourceTree = "<group>";
@@ -220,10 +229,21 @@
 		A78C6397253CB216009B934D /* Analytics */ = {
 			isa = PBXGroup;
 			children = (
-				A78C6398253CB235009B934D /* StreamFullyEvent.swift */,
+				A78C63A7253CB6FD009B934D /* Events */,
 				A78C639D253CB2FF009B934D /* StreamFully.swift */,
+				A78C63C2253CC3E2009B934D /* AnalyticsManager.swift */,
 			);
 			path = Analytics;
+			sourceTree = "<group>";
+		};
+		A78C63A7253CB6FD009B934D /* Events */ = {
+			isa = PBXGroup;
+			children = (
+				A78C6398253CB235009B934D /* StreamFullyEvent.swift */,
+				A78C63B0253CBC1A009B934D /* FlyerOpenEvent.swift */,
+				A78C63B5253CBC42009B934D /* FlyerSessionEvent.swift */,
+			);
+			path = Events;
 			sourceTree = "<group>";
 		};
 		A7C44BF7253AA7BC0066E4D2 = {
@@ -484,14 +504,18 @@
 			buildActionMask = 2147483647;
 			files = (
 				A78C6387253C9029009B934D /* FlyerDetailPresenter.swift in Sources */,
+				A78C63B1253CBC1A009B934D /* FlyerOpenEvent.swift in Sources */,
 				A78C6362253C6402009B934D /* FlyerCellViewState.swift in Sources */,
 				A70F7C36253BB460001CA19F /* FlyersDisplayerPresenter.swift in Sources */,
 				A78C6399253CB235009B934D /* StreamFullyEvent.swift in Sources */,
+				A78C63B6253CBC42009B934D /* FlyerSessionEvent.swift in Sources */,
 				A78C633E253C4979009B934D /* UICollectionView+dequeueReusableCell.swift in Sources */,
+				A78C63BE253CC350009B934D /* Encodable+StreamFully.swift in Sources */,
 				A70F7C15253B904E001CA19F /* JSONDecoder+decodeResponse.swift in Sources */,
 				A70F7C2B253B97C0001CA19F /* APIClient.swift in Sources */,
 				A78C6339253C4896009B934D /* ReusableView.swift in Sources */,
 				A70F7C3F253BB5C7001CA19F /* FlyersDisplayerInteractor.swift in Sources */,
+				A78C63C3253CC3E2009B934D /* AnalyticsManager.swift in Sources */,
 				A78C639E253CB2FF009B934D /* StreamFully.swift in Sources */,
 				A70F7C26253B9459001CA19F /* APIRouter.swift in Sources */,
 				A70F7C49253BBAAB001CA19F /* FlyerCollectionViewCell.swift in Sources */,
