@@ -8,12 +8,13 @@
 import Foundation
 
 protocol FlyersDisplayerPresenterProtocol: AnyObject {
-    
+    func loadFlyers()
 }
 
 class FlyersDisplayerPresenter {
     
-    typealias FlyersDisplayerView = FlyersDisplayerViewProtocol
+    typealias FlyersDisplayerView = FlyersDisplayerViewProtocol & LoaderDisplayer
+    
     weak var view: FlyersDisplayerView!
     let interactor: FlyersDisplayerInteractorProtocol
     
@@ -21,9 +22,11 @@ class FlyersDisplayerPresenter {
         self.view = view
         self.interactor = interactor
     }
-    
 }
 
 extension FlyersDisplayerPresenter: FlyersDisplayerPresenterProtocol {
     
+    func loadFlyers() {
+        view.showLoader()
+    }
 }

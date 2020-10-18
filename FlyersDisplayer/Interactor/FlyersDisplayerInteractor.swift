@@ -9,13 +9,21 @@ import Foundation
 
 protocol FlyersDisplayerInteractorProtocol: AnyObject {
     
+    func loadFlyersData()
 }
 
-class FlyersDisplayerInteractor: FlyersDisplayerInteractorProtocol {
+class FlyersDisplayerInteractor {
     
     let service: FlyersAPI
     
     init(service: FlyersAPI) {
         self.service = service
+    }
+}
+
+extension FlyersDisplayerInteractor: FlyersDisplayerInteractorProtocol {
+    
+    func loadFlyersData() {
+        
     }
 }

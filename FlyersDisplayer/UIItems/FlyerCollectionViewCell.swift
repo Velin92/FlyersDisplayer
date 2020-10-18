@@ -8,7 +8,9 @@
 import Foundation
 import UIKit
 
-class FlyerCollectionViewCell: UICollectionViewCell {
+class FlyerCollectionViewCell: UICollectionViewCell, ReusableView {
+    
+    static let defaultReuseId = "FlyerCollectionViewCell"
     
     @IBOutlet weak var backgroundImageView: UIImageView!
     @IBOutlet weak var readFlagImageView: UIImageView!

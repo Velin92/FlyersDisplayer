@@ -12,7 +12,7 @@ protocol FlyersDisplayerViewProtocol: UIViewController {
     
 }
 
-class FlyersDisplayerViewController: UIViewController, Storyboarded  {
+class FlyersDisplayerViewController: UIViewController, Storyboarded, LoaderDisplayer  {
     
     static let storyboardName = "Main"
     static let storyboardId = "FlyersDisplayerViewController"
@@ -22,9 +22,19 @@ class FlyersDisplayerViewController: UIViewController, Storyboarded  {
     @IBOutlet weak var flyersCollectionView: UICollectionView!
     var filterButton: UIButton!
     
+    let collectionViewManager = FlyersCollectionViewManager()
+    
     override func viewDidLoad() {
         super.viewDidLoad()
+        navigationController?.navigationBar.prefersLargeTitles = true
         setupFilterButton()
+        setupCollectionView()
+    }
+    
+    private func setupCollectionView() {
+        flyersCollectionView.dataSource = collectionViewManager
+        flyersCollectionView.delegate = collectionViewManager
+        flyersCollectionView.reloadData()
     }
     
     private func setupFilterButton() {
