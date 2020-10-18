@@ -12,6 +12,7 @@ protocol FlyersDisplayerPresenterProtocol: AnyObject {
     func loadFlyers()
     func updateFlyers()
     func didSelectItem(at index: Int)
+    func toggleFilter()
 }
 
 class FlyersDisplayerPresenter {
@@ -59,9 +60,15 @@ extension FlyersDisplayerPresenter: FlyersDisplayerPresenterProtocol {
     }
     
     private func mapViewStates(with models: [Flyer]) {
+        var filteredModels: [Flyer]
+        if viewState.isFilterActive {
+            filteredModels = models.filter({$0.isRead})
+        } else {
+            filteredModels = models
+        }
         var cellViewStates: [FlyerCellViewState] = []
         var mappedIdentifiers: [Int] = []
-        for model in models {
+        for model in filteredModels {
             cellViewStates.append(FlyerCellViewState(from: model))
             mappedIdentifiers.append(model.id)
         }
@@ -72,5 +79,10 @@ extension FlyersDisplayerPresenter: FlyersDisplayerPresenterProtocol {
     func updateFlyers() {
         mapViewStates(with: interactor.flyers)
         updateView()
+    }
+    
+    func toggleFilter() {
+        viewState.isFilterActive = !viewState.isFilterActive
+        updateFlyers()
     }
 }

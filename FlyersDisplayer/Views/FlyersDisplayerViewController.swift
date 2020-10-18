@@ -62,7 +62,7 @@ class FlyersDisplayerViewController: UIViewController, Storyboarded, LoaderDispl
     }
     
     @objc private func didTapOnFilterButton(_ sender: Any){
-        
+        presenter.toggleFilter()
     }
 }
 
