@@ -18,6 +18,8 @@ class FlyersDisplayerViewController: UIViewController, Storyboarded  {
     static let storyboardId = "FlyersDisplayerViewController"
     
     var presenter: FlyersDisplayerPresenterProtocol!
+    
+    @IBOutlet weak var flyersCollectionView: UICollectionView!
     var filterButton: UIButton!
     
     override func viewDidLoad() {
