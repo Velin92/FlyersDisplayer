@@ -7,7 +7,6 @@
 
 import Foundation
 
-// MARK: - Event
 struct FlyerSessionEvent: Encodable, ​StreamFullyEvent​ {
     
     var eventType: String {
@@ -17,8 +16,10 @@ struct FlyerSessionEvent: Encodable, ​StreamFullyEvent​ {
     }
     
     let flyerID: String
-    let sessionDuration: UInt64
-    let firstRead: String
+    
+    //I will use milliseconds
+    let sessionDuration: Int
+    let firstRead: Bool
 
     enum CodingKeys: String, CodingKey {
         case flyerID = "flyer_id"

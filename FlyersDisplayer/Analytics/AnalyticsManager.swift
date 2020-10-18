@@ -9,7 +9,7 @@ import Foundation
 
 final class AnalyticsManager {
     
-    static let streamFully: StreamFully = {
+    private static let streamFully: StreamFully = {
         guard let appId = Bundle.main.bundleIdentifier,
             let appVersion = Bundle.main.infoDictionary?["CFBundleShortVersionString"] as? String else {
             fatalError("Couldn't find app version and/or bundle identifier")

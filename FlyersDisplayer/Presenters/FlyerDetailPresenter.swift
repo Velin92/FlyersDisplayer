@@ -30,9 +30,11 @@ extension FlyerDetailPresenter: FlyerDetailPresenterProtocol {
     
     func populate() {
         view.updateViewState(FlyerViewState(from: interactor.model))
+        interactor.startSession()
     }
     
     func dismiss() {
+        interactor.endSession()
         dismissClosure?()
     }
 }
