@@ -59,7 +59,7 @@
                                                             </constraints>
                                                         </imageView>
                                                     </subviews>
-                                                    <color key="backgroundColor" systemColor="systemBackgroundColor"/>
+                                                    <color key="backgroundColor" systemColor="secondarySystemBackgroundColor"/>
                                                     <constraints>
                                                         <constraint firstAttribute="trailing" secondItem="u4U-e0-VG8" secondAttribute="trailing" id="1Kj-8L-HMq"/>
                                                         <constraint firstItem="jx3-pw-xVa" firstAttribute="height" relation="lessThanOrEqual" secondItem="dbr-rs-7sO" secondAttribute="height" multiplier="0.75" id="4CU-Ba-tK3"/>
@@ -149,6 +149,7 @@
                                     <constraint firstAttribute="width" secondItem="yfM-qi-GhQ" secondAttribute="height" multiplier="1:1" id="I6p-aM-Jvh"/>
                                     <constraint firstAttribute="height" constant="30" id="cWb-fP-1YP"/>
                                 </constraints>
+                                <color key="tintColor" systemColor="labelColor"/>
                                 <state key="normal" image="icon_close"/>
                                 <connections>
                                     <action selector="didTapOnCloseButton:" destination="PJI-ZB-2tG" eventType="touchUpInside" id="mbv-u9-IQu"/>
@@ -179,6 +180,12 @@
     <resources>
         <image name="icon_close" width="102" height="101"/>
         <image name="icon_eye_fill" width="134" height="84"/>
+        <systemColor name="labelColor">
+            <color white="0.0" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
+        </systemColor>
+        <systemColor name="secondarySystemBackgroundColor">
+            <color red="0.94901960784313721" green="0.94901960784313721" blue="0.96862745098039216" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
+        </systemColor>
         <systemColor name="systemBackgroundColor">
             <color white="1" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
         </systemColor>
