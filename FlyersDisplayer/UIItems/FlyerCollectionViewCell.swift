@@ -22,5 +22,11 @@ class FlyerCollectionViewCell: UICollectionViewCell, ReusableView {
         backgroundImageView.kf.setImage(with: try? viewState.flyerViewState.imageUrl.asURL())
         titleLabel.text = viewState.flyerViewState.title
         readFlagImageView.isHidden = viewState.isReadImageHidden
+        if #available(iOS 13.0, *) {
+            readFlagImageView.tintColor = .systemBlue
+        } else {
+            readFlagImageView.tintColor = UIColor(displayP3Red: 0.0, green: 122.0/255.0, blue: 255.0, alpha: 1)
+        }
+        readFlagImageView.layer.cornerRadius = readFlagImageView.frame.height/2
     }
 }
