@@ -9,6 +9,7 @@ import Foundation
 
 protocol FlyerDetailPresenterProtocol {
     func populate()
+    func dismiss()
 }
 
 class FlyerDetailPresenter {
@@ -17,6 +18,8 @@ class FlyerDetailPresenter {
     weak var view: FlyerDetailPresenterView!
     let interactor: FlyerDetailInteractorProtocol
     
+    var dismissClosure: (()->())?
+        
     init(view: FlyerDetailPresenterView, interactor: FlyerDetailInteractorProtocol) {
         self.view = view
         self.interactor = interactor
@@ -27,5 +30,9 @@ extension FlyerDetailPresenter: FlyerDetailPresenterProtocol {
     
     func populate() {
         view.updateViewState(FlyerViewState(from: interactor.model))
+    }
+    
+    func dismiss() {
+        dismissClosure?()
     }
 }

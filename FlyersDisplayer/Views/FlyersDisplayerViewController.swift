@@ -31,6 +31,10 @@ class FlyersDisplayerViewController: UIViewController, Storyboarded, LoaderDispl
         setupCollectionView()
         presenter.loadFlyers()
     }
+    override func viewWillAppear(_ animated: Bool) {
+        super.viewWillAppear(animated)
+        presenter.updateFlyers()
+    }
     
     private func setupCollectionView() {
         collectionViewManager.didSelectItem = { [weak self] index in

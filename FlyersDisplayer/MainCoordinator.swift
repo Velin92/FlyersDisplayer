@@ -20,20 +20,28 @@ class MainCoordinator {
         let vc = FlyersDisplayerViewController.instantiate()
         let interactor = FlyersDisplayerInteractor(service: APIClient())
         let presenter = FlyersDisplayerPresenter(view: vc, interactor: interactor)
+        unowned let weakPresenter = presenter
         presenter.goToFlyerDetail = { [weak self] model in
-            self?.goToFlyerDetail(model: model)
+            self?.goToFlyerDetail(model: model, previousPresenter: weakPresenter)
         }
         vc.presenter = presenter
         navigationController.pushViewController(vc, animated: false)
     }
     
-    func goToFlyerDetail(model: Flyer) {
+    func goToFlyerDetail(model: Flyer, previousPresenter: FlyersDisplayerPresenter) {
         let vc = FlyerDetailViewController.instantiate()
         let interactor = FlyerDetailInteractor(model: model)
         let presenter = FlyerDetailPresenter(view: vc, interactor: interactor)
+        presenter.dismissClosure = { [weak self] in
+            DispatchQueue.main.async {
+                self?.navigationController.dismiss(animated: true) {
+                    previousPresenter.updateFlyers()
+                }
+            }
+        }
         vc.presenter = presenter
         DispatchQueue.main.async {
-            self.navigationController.present(vc, animated: true, completion: nil)
+            self.navigationController.present(vc, animated: true)
         }
     }
 }

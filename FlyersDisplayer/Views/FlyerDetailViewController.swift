@@ -29,6 +29,7 @@ class FlyerDetailViewController: UIViewController, Storyboarded {
     }
     
     @IBAction func didTapOnCloseButton(_ sender: Any) {
+        presenter.dismiss()
     }
 }
 

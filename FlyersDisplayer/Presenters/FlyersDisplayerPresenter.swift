@@ -10,6 +10,7 @@ import Foundation
 protocol FlyersDisplayerPresenterProtocol: AnyObject {
     
     func loadFlyers()
+    func updateFlyers()
     func didSelectItem(at index: Int)
 }
 
@@ -38,7 +39,7 @@ class FlyersDisplayerPresenter {
 extension FlyersDisplayerPresenter: FlyersDisplayerPresenterProtocol {
     
     func didSelectItem(at index: Int) {
-        let flyer = interactor.getFlyer(for: identifiers[index])
+        let flyer = interactor.readFlyer(for: identifiers[index])
         goToFlyerDetail?(flyer)
     }
     
@@ -66,5 +67,10 @@ extension FlyersDisplayerPresenter: FlyersDisplayerPresenterProtocol {
         }
         viewState.cellViewStates = cellViewStates
         identifiers = mappedIdentifiers
+    }
+    
+    func updateFlyers() {
+        mapViewStates(with: interactor.flyers)
+        updateView()
     }
 }
