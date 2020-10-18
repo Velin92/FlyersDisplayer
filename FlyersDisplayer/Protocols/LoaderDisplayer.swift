@@ -8,7 +8,7 @@
 import Foundation
 import UIKit
 
-protocol LoaderDisplayer where Self: UIViewController {
+protocol LoaderDisplayer: UIViewController {
     func showLoader()
     func hideLoader()
 }
@@ -18,7 +18,12 @@ extension LoaderDisplayer {
         DispatchQueue.main.async {
             let maskView = UIView(frame: self.view.frame)
             self.view.addSubview(maskView)
-            let activityView = UIActivityIndicatorView()
+            let activityView: UIActivityIndicatorView
+            if #available(iOS 13.0, *) {
+                activityView = UIActivityIndicatorView(style: .large)
+            } else {
+                activityView = UIActivityIndicatorView()
+            }
             activityView.center = self.view.center
             activityView.startAnimating()
             maskView.tag = String(describing: self).hashValue

@@ -9,7 +9,7 @@ import Foundation
 import UIKit
 
 protocol FlyersDisplayerViewProtocol: UIViewController {
-    
+    func updateViewState(_ viewState: FlyersDisplayerViewState)
 }
 
 class FlyersDisplayerViewController: UIViewController, Storyboarded, LoaderDisplayer  {
@@ -29,6 +29,7 @@ class FlyersDisplayerViewController: UIViewController, Storyboarded, LoaderDispl
         navigationController?.navigationBar.prefersLargeTitles = true
         setupFilterButton()
         setupCollectionView()
+        presenter.loadFlyers()
     }
     
     private func setupCollectionView() {
@@ -60,4 +61,25 @@ class FlyersDisplayerViewController: UIViewController, Storyboarded, LoaderDispl
 
 extension FlyersDisplayerViewController: FlyersDisplayerViewProtocol {
     
+    func updateViewState(_ viewState: FlyersDisplayerViewState) {
+        DispatchQueue.main.async {
+            self.updateFilterButtonState(isActive: viewState.isFilterActive)
+            self.updateCollectionView(with: viewState.cellViewStates)
+        }
+    }
+    
+    private func updateFilterButtonState(isActive: Bool) {
+        let image: UIImage
+        if isActive {
+            image = UIImage(named:"icon_eye_fill")!.withRenderingMode(.alwaysTemplate)
+        } else {
+            image = UIImage(named:"icon_eye")!.withRenderingMode(.alwaysTemplate)
+        }
+        filterButton.setImage(image, for: .normal)
+    }
+    
+    private func updateCollectionView(with data: [FlyerCellViewState]) {
+        collectionViewManager.dataSource = data
+        flyersCollectionView.reloadData()
+    }
 }

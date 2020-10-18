@@ -31,18 +31,30 @@ class FlyersDisplayerInteractor {
 extension FlyersDisplayerInteractor: FlyersDisplayerInteractorProtocol {
     
     func loadFlyersData(completion: @escaping ((Result<[Flyer], FlyerDisplayerError>)->Void)) {
-        service.getFlyersList { [weak self] result in
+        service.getFlyersList { [unowned self] result in
             switch result {
             case .success(let response):
                 guard let data = response.data else {
                     completion(.failure(.empty))
                     return
                 }
-                self?.flyers = data.compactMap(Flyer.init)
-                completion(.success(self?.flyers ?? []))
+                self.flyers = data.compactMap(self.createValidFlyerModel)
+                completion(.success(self.flyers))
             case .failure(let error):
                 completion(.failure(.genericError(error: error)))
             }
         }
+    }
+    
+    private func createValidFlyerModel(from data: FlyerData) -> Flyer? {
+        guard let idString = data.id,
+              let id = Int(idString),
+              let retailerIdString = data.retailerID,
+              let retailerId = Int(retailerIdString),
+              let title = data.title else {return nil}
+        return Flyer(id: id,
+                     retailerId: retailerId,
+                     title: title,
+                     imageUrl: "\(Constants.imagesBaseUrlPath)\(id)@3x.jpg")
     }
 }

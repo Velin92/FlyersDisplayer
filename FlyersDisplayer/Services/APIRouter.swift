@@ -11,8 +11,6 @@ import Alamofire
 
 enum APIRouter: URLRequestConvertible {
     
-    static let baseURLPath = "https://run.mocky.io/v3/94da1ce3-3d3f-414c-8857-da813df3bb05"
-    
     enum HTTPHeaderField: String {
         case authentication = "Authorization"
         case contentType = "Content-Type"
@@ -43,7 +41,7 @@ enum APIRouter: URLRequestConvertible {
     }
     
     public func asURLRequest() throws -> URLRequest {
-        let url = try APIRouter.baseURLPath.asURL()
+        let url = try Constants.baseURLPath.asURL()
         var urlRequest = URLRequest(url: url.appendingPathComponent(path))
         
         // HTTP Method

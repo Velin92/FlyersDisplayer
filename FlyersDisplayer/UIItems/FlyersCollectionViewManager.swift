@@ -10,12 +10,16 @@ import UIKit
 
 class FlyersCollectionViewManager: NSObject, UICollectionViewDelegateFlowLayout, UICollectionViewDataSource {
     
+    var dataSource: [FlyerCellViewState] = []
+    
     func collectionView(_ collectionView: UICollectionView, numberOfItemsInSection section: Int) -> Int {
-        return 20
+        return dataSource.count
     }
     
     func collectionView(_ collectionView: UICollectionView, cellForItemAt indexPath: IndexPath) -> UICollectionViewCell {
         let cell: FlyerCollectionViewCell = collectionView.dequeueReusableCell(for: indexPath)
+        let cellViewState = dataSource[indexPath.item]
+        cell.setViewState(cellViewState)
         return cell
     }
     
