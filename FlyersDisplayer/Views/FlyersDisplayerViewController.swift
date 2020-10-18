@@ -41,7 +41,7 @@ class FlyersDisplayerViewController: UIViewController, Storyboarded, LoaderDispl
     private func setupFilterButton() {
         filterButton = UIButton(type: .custom)
         filterButton.frame = CGRect(x: 0.0, y: 0.0, width: 25, height: 25)
-        let image = UIImage(named:"icon_eye")!.withRenderingMode(.alwaysTemplate)
+        let image = UIImage(named:"icon_eye")!
         filterButton.setImage(image, for: .normal)
         filterButton.imageView?.contentMode = .scaleAspectFit
         filterButton.tintColor = .systemBlue
@@ -69,12 +69,7 @@ extension FlyersDisplayerViewController: FlyersDisplayerViewProtocol {
     }
     
     private func updateFilterButtonState(isActive: Bool) {
-        let image: UIImage
-        if isActive {
-            image = UIImage(named:"icon_eye_fill")!.withRenderingMode(.alwaysTemplate)
-        } else {
-            image = UIImage(named:"icon_eye")!.withRenderingMode(.alwaysTemplate)
-        }
+        let image = isActive ? UIImage(named:"icon_eye_fill")! : UIImage(named:"icon_eye")!
         filterButton.setImage(image, for: .normal)
     }
     

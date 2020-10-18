@@ -48,9 +48,10 @@
                                                             <nil key="textColor"/>
                                                             <nil key="highlightedColor"/>
                                                         </label>
-                                                        <imageView clipsSubviews="YES" userInteractionEnabled="NO" contentMode="scaleAspectFit" horizontalHuggingPriority="251" verticalHuggingPriority="251" translatesAutoresizingMaskIntoConstraints="NO" id="u4U-e0-VG8">
+                                                        <imageView clipsSubviews="YES" userInteractionEnabled="NO" contentMode="scaleAspectFit" horizontalHuggingPriority="251" verticalHuggingPriority="251" image="icon_eye_fill" translatesAutoresizingMaskIntoConstraints="NO" id="u4U-e0-VG8">
                                                             <rect key="frame" x="150" y="250" width="30" height="30"/>
                                                             <color key="backgroundColor" white="0.0" alpha="0.0" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
+                                                            <color key="tintColor" systemColor="systemBlueColor"/>
                                                             <constraints>
                                                                 <constraint firstAttribute="height" constant="30" id="A8X-e9-2A9"/>
                                                                 <constraint firstAttribute="width" secondItem="u4U-e0-VG8" secondAttribute="height" multiplier="1:1" id="ymb-bc-zKe"/>
@@ -108,10 +109,29 @@
             </objects>
             <point key="canvasLocation" x="2" y="-166"/>
         </scene>
+        <!--View Controller-->
+        <scene sceneID="Tkb-uq-hGq">
+            <objects>
+                <viewController id="PJI-ZB-2tG" sceneMemberID="viewController">
+                    <view key="view" contentMode="scaleToFill" id="rbj-0U-9Kg">
+                        <rect key="frame" x="0.0" y="0.0" width="414" height="896"/>
+                        <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
+                        <viewLayoutGuide key="safeArea" id="vGk-Lm-EOd"/>
+                        <color key="backgroundColor" systemColor="systemBackgroundColor"/>
+                    </view>
+                </viewController>
+                <placeholder placeholderIdentifier="IBFirstResponder" id="dQs-Vd-9dj" userLabel="First Responder" customClass="UIResponder" sceneMemberID="firstResponder"/>
+            </objects>
+            <point key="canvasLocation" x="964" y="-163"/>
+        </scene>
     </scenes>
     <resources>
+        <image name="icon_eye_fill" width="134" height="84"/>
         <systemColor name="systemBackgroundColor">
             <color white="1" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
+        </systemColor>
+        <systemColor name="systemBlueColor">
+            <color red="0.0" green="0.47843137254901963" blue="1" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
         </systemColor>
     </resources>
 </document>
