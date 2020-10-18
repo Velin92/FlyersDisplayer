@@ -37,7 +37,7 @@ extension FlyerDetailInteractor: FlyerDetailInteractorProtocol {
             }
         }
         
-        let event: FlyerSessionEvent = FlyerSessionEvent(flyerID: "\(model.id)", sessionDuration: duration, firstRead: !model.isRead)
+        let event: FlyerSessionEvent = FlyerSessionEvent(flyerID: "\(model.id)", sessionDurationInMilliseconds: duration, firstRead: !model.isRead)
         AnalyticsManager.process(event: event)
     }
     

@@ -17,13 +17,13 @@ struct FlyerSessionEvent: Encodable, ​StreamFullyEvent​ {
     
     let flyerID: String
     
-    //I will use milliseconds
-    let sessionDuration: Int
+    //SINCE IS NOT SPECIFIED IF THE DURATION SHOULD BE IN SECONDS OR MILLISECONDS, I WILL USE THE LATTER SINCE IS MORE COMMON FOR SESSION MEASUREMENT.
+    let sessionDurationInMilliseconds: Int
     let firstRead: Bool
 
     enum CodingKeys: String, CodingKey {
         case flyerID = "flyer_id"
-        case sessionDuration = "session_duration"
+        case sessionDurationInMilliseconds = "session_duration"
         case firstRead = "first_read"
     }
 }
