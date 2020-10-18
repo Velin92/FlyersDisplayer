@@ -7,9 +7,14 @@
 
 import Foundation
 
+enum FlyerDisplayerError: Error {
+    case genericError(error: Error)
+    case empty
+}
+
 protocol FlyersDisplayerInteractorProtocol: AnyObject {
     
-    func loadFlyersData(completion: @escaping ((Result<[Flyer], Error>)->Void))
+    func loadFlyersData(completion: @escaping ((Result<[Flyer], FlyerDisplayerError>)->Void))
 }
 
 class FlyersDisplayerInteractor {
@@ -25,15 +30,18 @@ class FlyersDisplayerInteractor {
 
 extension FlyersDisplayerInteractor: FlyersDisplayerInteractorProtocol {
     
-    func loadFlyersData(completion: @escaping ((Result<[Flyer], Error>)->Void)) {
+    func loadFlyersData(completion: @escaping ((Result<[Flyer], FlyerDisplayerError>)->Void)) {
         service.getFlyersList { [weak self] result in
             switch result {
             case .success(let response):
                 guard let data = response.data else {
-                    
+                    completion(.failure(.empty))
+                    return
                 }
-                
-            case .failure(let error)
+                self?.flyers = data.compactMap(Flyer.init)
+                completion(.success(self?.flyers ?? []))
+            case .failure(let error):
+                completion(.failure(.genericError(error: error)))
             }
         }
     }

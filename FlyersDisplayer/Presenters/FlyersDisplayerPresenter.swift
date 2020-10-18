@@ -28,5 +28,14 @@ extension FlyersDisplayerPresenter: FlyersDisplayerPresenterProtocol {
     
     func loadFlyers() {
         view.showLoader()
+        interactor.loadFlyersData { [weak self] result in
+            self?.view.hideLoader()
+            switch result {
+            case .success(let flyers):
+                break
+            case .failure(let error):
+                break
+            }
+        }
     }
 }
