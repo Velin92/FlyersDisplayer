@@ -19,7 +19,7 @@
                         <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
                         <subviews>
                             <collectionView clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="scaleToFill" dataMode="prototypes" translatesAutoresizingMaskIntoConstraints="NO" id="nJ7-da-qMS">
-                                <rect key="frame" x="0.0" y="88" width="414" height="774"/>
+                                <rect key="frame" x="0.0" y="88" width="414" height="724"/>
                                 <color key="backgroundColor" systemColor="systemBackgroundColor"/>
                                 <collectionViewFlowLayout key="collectionViewLayout" minimumLineSpacing="10" minimumInteritemSpacing="10" id="9YI-zD-TFf">
                                     <size key="itemSize" width="128" height="128"/>
@@ -90,25 +90,59 @@
                                     </collectionViewCell>
                                 </cells>
                             </collectionView>
+                            <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="i8m-5i-Voj">
+                                <rect key="frame" x="0.0" y="812" width="414" height="50"/>
+                                <subviews>
+                                    <stackView opaque="NO" contentMode="scaleToFill" distribution="fillEqually" translatesAutoresizingMaskIntoConstraints="NO" id="91n-8N-ure">
+                                        <rect key="frame" x="10" y="0.0" width="394" height="50"/>
+                                        <subviews>
+                                            <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Connection status:" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="Lsf-eM-1by" userLabel="Connection Status:">
+                                                <rect key="frame" x="0.0" y="0.0" width="197" height="50"/>
+                                                <fontDescription key="fontDescription" type="system" pointSize="17"/>
+                                                <nil key="textColor"/>
+                                                <nil key="highlightedColor"/>
+                                            </label>
+                                            <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Connected" textAlignment="right" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="Wpj-EG-ln3">
+                                                <rect key="frame" x="197" y="0.0" width="197" height="50"/>
+                                                <fontDescription key="fontDescription" type="system" pointSize="17"/>
+                                                <nil key="textColor"/>
+                                                <nil key="highlightedColor"/>
+                                            </label>
+                                        </subviews>
+                                    </stackView>
+                                </subviews>
+                                <color key="backgroundColor" systemColor="systemBackgroundColor"/>
+                                <constraints>
+                                    <constraint firstAttribute="trailing" secondItem="91n-8N-ure" secondAttribute="trailing" constant="10" id="6iK-NY-x9Q"/>
+                                    <constraint firstAttribute="height" constant="50" id="8MH-IR-ceN"/>
+                                    <constraint firstItem="91n-8N-ure" firstAttribute="top" secondItem="i8m-5i-Voj" secondAttribute="top" id="Bc5-kH-tKM"/>
+                                    <constraint firstAttribute="bottom" secondItem="91n-8N-ure" secondAttribute="bottom" id="cfP-pO-MYJ"/>
+                                    <constraint firstItem="91n-8N-ure" firstAttribute="leading" secondItem="i8m-5i-Voj" secondAttribute="leading" constant="10" id="lIf-gz-Sgy"/>
+                                </constraints>
+                            </view>
                         </subviews>
                         <viewLayoutGuide key="safeArea" id="76C-uM-fTz"/>
                         <color key="backgroundColor" systemColor="systemBackgroundColor"/>
                         <constraints>
+                            <constraint firstItem="i8m-5i-Voj" firstAttribute="leading" secondItem="76C-uM-fTz" secondAttribute="leading" id="4hu-a0-KWa"/>
+                            <constraint firstItem="76C-uM-fTz" firstAttribute="bottom" secondItem="i8m-5i-Voj" secondAttribute="bottom" id="B5R-yG-7WH"/>
+                            <constraint firstItem="76C-uM-fTz" firstAttribute="trailing" secondItem="i8m-5i-Voj" secondAttribute="trailing" id="CB9-BD-XOf"/>
                             <constraint firstItem="nJ7-da-qMS" firstAttribute="leading" secondItem="76C-uM-fTz" secondAttribute="leading" id="Gs5-G4-Yi2"/>
-                            <constraint firstItem="76C-uM-fTz" firstAttribute="bottom" secondItem="nJ7-da-qMS" secondAttribute="bottom" id="HIT-Bm-ke8"/>
                             <constraint firstItem="nJ7-da-qMS" firstAttribute="top" secondItem="76C-uM-fTz" secondAttribute="top" id="JfF-Lo-Q46"/>
                             <constraint firstItem="76C-uM-fTz" firstAttribute="trailing" secondItem="nJ7-da-qMS" secondAttribute="trailing" id="Lo9-Z5-A5t"/>
+                            <constraint firstItem="i8m-5i-Voj" firstAttribute="top" secondItem="nJ7-da-qMS" secondAttribute="bottom" id="QTJ-CR-RHY"/>
                         </constraints>
                     </view>
                     <navigationItem key="navigationItem" title="Flyers Displayer" id="Vbj-LT-bqF"/>
                     <simulatedNavigationBarMetrics key="simulatedTopBarMetrics" prompted="NO"/>
                     <connections>
+                        <outlet property="connectionStateLabel" destination="Wpj-EG-ln3" id="Pjg-rc-N35"/>
                         <outlet property="flyersCollectionView" destination="nJ7-da-qMS" id="dd4-At-Lm5"/>
                     </connections>
                 </viewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="vnR-3U-bXz" userLabel="First Responder" customClass="UIResponder" sceneMemberID="firstResponder"/>
             </objects>
-            <point key="canvasLocation" x="2" y="-166"/>
+            <point key="canvasLocation" x="1.4492753623188408" y="-166.07142857142856"/>
         </scene>
         <!--Flyer Detail View Controller-->
         <scene sceneID="Tkb-uq-hGq">

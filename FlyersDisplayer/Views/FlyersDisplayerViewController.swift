@@ -20,6 +20,8 @@ class FlyersDisplayerViewController: UIViewController, Storyboarded, LoaderDispl
     var presenter: FlyersDisplayerPresenterProtocol!
     
     @IBOutlet weak var flyersCollectionView: UICollectionView!
+    @IBOutlet weak var connectionStateLabel: UILabel!
+    
     var filterButton: UIButton!
     
     let collectionViewManager = FlyersCollectionViewManager()
@@ -33,7 +35,12 @@ class FlyersDisplayerViewController: UIViewController, Storyboarded, LoaderDispl
     }
     override func viewWillAppear(_ animated: Bool) {
         super.viewWillAppear(animated)
-        presenter.updateFlyers()
+        presenter.startUpdatingConnectionStatus()
+    }
+    
+    override func viewDidDisappear(_ animated: Bool) {
+        super.viewDidDisappear(animated)
+        presenter.stopUpdatingConnectionStatus()
     }
     
     private func setupCollectionView() {
@@ -72,6 +79,7 @@ extension FlyersDisplayerViewController: FlyersDisplayerViewProtocol {
         DispatchQueue.main.async {
             self.updateFilterButtonState(isActive: viewState.isFilterActive)
             self.updateCollectionView(with: viewState.cellViewStates)
+            self.updateConnectionView(with: viewState.connectionState)
         }
     }
     
@@ -83,5 +91,23 @@ extension FlyersDisplayerViewController: FlyersDisplayerViewProtocol {
     private func updateCollectionView(with data: [FlyerCellViewState]) {
         collectionViewManager.dataSource = data
         flyersCollectionView.reloadData()
+    }
+    
+    private func updateConnectionView(with state: ConnectionState) {
+        connectionStateLabel.text = state.rawValue
+        switch state {
+        case .reachable:
+            connectionStateLabel.textColor = .systemGreen
+            break
+        case .unreachable:
+            connectionStateLabel.textColor = .systemRed
+            break
+        default:
+            if #available(iOS 13.0, *) {
+                connectionStateLabel.textColor = .label
+            } else {
+                connectionStateLabel.textColor = .black
+            }
+        }
     }
 }

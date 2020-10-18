@@ -6,6 +6,7 @@
 //
 
 import Foundation
+import Reachability
 
 enum FlyerDisplayerError: Error {
     case genericError(error: Error)
@@ -17,20 +18,42 @@ protocol FlyersDisplayerInteractorProtocol: AnyObject {
     func loadFlyersData(completion: @escaping ((Result<[Flyer], FlyerDisplayerError>)->Void))
     func readFlyer(for identifier: Int) -> Flyer
     var flyers: [Flyer] {get}
+    var connectedClosure: (()->())? {get set}
+    var unreachableClosure: (()->())? {get set}
+    func startUpdatingConnectionStatus()
+    func stopUpdatingConnectionStatus()
 }
 
 class FlyersDisplayerInteractor {
     
     let service: FlyersAPI
+    let reachability = try! Reachability()
+    
+    var connectedClosure: (()->())?
+    var unreachableClosure: (()->())?
     
     var flyers: [Flyer] = []
     
     init(service: FlyersAPI) {
         self.service = service
+        reachability.whenReachable = { [weak self] _ in
+            self?.connectedClosure?()
+        }
+        reachability.whenUnreachable = { [weak self] _ in
+            self?.unreachableClosure?()
+        }
     }
 }
 
 extension FlyersDisplayerInteractor: FlyersDisplayerInteractorProtocol {
+    func startUpdatingConnectionStatus() {
+        try? reachability.startNotifier()
+    }
+    
+    func stopUpdatingConnectionStatus() {
+        reachability.stopNotifier()
+    }
+    
     
     func loadFlyersData(completion: @escaping ((Result<[Flyer], FlyerDisplayerError>)->Void)) {
         service.getFlyersList { [unowned self] result in

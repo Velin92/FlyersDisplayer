@@ -10,9 +10,10 @@ import Foundation
 protocol FlyersDisplayerPresenterProtocol: AnyObject {
     
     func loadFlyers()
-    func updateFlyers()
     func didSelectItem(at index: Int)
     func toggleFilter()
+    func startUpdatingConnectionStatus()
+    func stopUpdatingConnectionStatus()
 }
 
 class FlyersDisplayerPresenter {
@@ -30,14 +31,33 @@ class FlyersDisplayerPresenter {
     init(view: FlyersDisplayerView, interactor: FlyersDisplayerInteractorProtocol) {
         self.view = view
         self.interactor = interactor
+        interactor.connectedClosure = { [weak self] in
+            self?.updateConnectionState(with: .reachable)
+        }
+        interactor.unreachableClosure = { [weak self] in
+            self?.updateConnectionState(with: .unreachable)
+        }
     }
     
     private func updateView() {
         view.updateViewState(viewState)
     }
+    
+    private func updateConnectionState( with state: ConnectionState) {
+        viewState.connectionState = state
+        updateView()
+    }
 }
 
 extension FlyersDisplayerPresenter: FlyersDisplayerPresenterProtocol {
+    
+    func startUpdatingConnectionStatus() {
+        interactor.startUpdatingConnectionStatus()
+    }
+    
+    func stopUpdatingConnectionStatus() {
+        interactor.stopUpdatingConnectionStatus()
+    }
     
     func didSelectItem(at index: Int) {
         let flyer = interactor.readFlyer(for: identifiers[index])
