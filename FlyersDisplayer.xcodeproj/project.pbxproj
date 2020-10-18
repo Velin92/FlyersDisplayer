@@ -19,6 +19,7 @@
 		A78C633E253C4979009B934D /* UICollectionView+dequeueReusableCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = A78C633D253C4979009B934D /* UICollectionView+dequeueReusableCell.swift */; };
 		A78C6343253C4D0F009B934D /* LoaderDisplayer.swift in Sources */ = {isa = PBXBuildFile; fileRef = A78C6342253C4D0F009B934D /* LoaderDisplayer.swift */; };
 		A78C6348253C4E99009B934D /* FlyersCollectionViewManager.swift in Sources */ = {isa = PBXBuildFile; fileRef = A78C6347253C4E99009B934D /* FlyersCollectionViewManager.swift */; };
+		A78C6359253C580F009B934D /* Flyer.swift in Sources */ = {isa = PBXBuildFile; fileRef = A78C6358253C580F009B934D /* Flyer.swift */; };
 		A7C44C04253AA7BC0066E4D2 /* AppDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = A7C44C03253AA7BC0066E4D2 /* AppDelegate.swift */; };
 		A7C44C0B253AA7BC0066E4D2 /* Main.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = A7C44C09253AA7BC0066E4D2 /* Main.storyboard */; };
 		A7C44C0D253AA7BE0066E4D2 /* Assets.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = A7C44C0C253AA7BE0066E4D2 /* Assets.xcassets */; };
@@ -61,6 +62,7 @@
 		A78C633D253C4979009B934D /* UICollectionView+dequeueReusableCell.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "UICollectionView+dequeueReusableCell.swift"; sourceTree = "<group>"; };
 		A78C6342253C4D0F009B934D /* LoaderDisplayer.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = LoaderDisplayer.swift; sourceTree = "<group>"; };
 		A78C6347253C4E99009B934D /* FlyersCollectionViewManager.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = FlyersCollectionViewManager.swift; sourceTree = "<group>"; };
+		A78C6358253C580F009B934D /* Flyer.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Flyer.swift; sourceTree = "<group>"; };
 		A7C44C00253AA7BC0066E4D2 /* FlyersDisplayer.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = FlyersDisplayer.app; sourceTree = BUILT_PRODUCTS_DIR; };
 		A7C44C03253AA7BC0066E4D2 /* AppDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AppDelegate.swift; sourceTree = "<group>"; };
 		A7C44C0A253AA7BC0066E4D2 /* Base */ = {isa = PBXFileReference; lastKnownFileType = file.storyboard; name = Base; path = Base.lproj/Main.storyboard; sourceTree = "<group>"; };
@@ -166,6 +168,14 @@
 			path = UIItems;
 			sourceTree = "<group>";
 		};
+		A78C6357253C5800009B934D /* Models */ = {
+			isa = PBXGroup;
+			children = (
+				A78C6358253C580F009B934D /* Flyer.swift */,
+			);
+			path = Models;
+			sourceTree = "<group>";
+		};
 		A7C44BF7253AA7BC0066E4D2 = {
 			isa = PBXGroup;
 			children = (
@@ -191,6 +201,7 @@
 		A7C44C02253AA7BC0066E4D2 /* FlyersDisplayer */ = {
 			isa = PBXGroup;
 			children = (
+				A78C6357253C5800009B934D /* Models */,
 				A70F7C47253BBA98001CA19F /* UIItems */,
 				A70F7C3D253BB5B6001CA19F /* Interactor */,
 				A70F7C34253BB442001CA19F /* Presenters */,
@@ -426,6 +437,7 @@
 				A70F7C3F253BB5C7001CA19F /* FlyersDisplayerInteractor.swift in Sources */,
 				A70F7C26253B9459001CA19F /* APIRouter.swift in Sources */,
 				A70F7C49253BBAAB001CA19F /* FlyerCollectionViewCell.swift in Sources */,
+				A78C6359253C580F009B934D /* Flyer.swift in Sources */,
 				A70F7C30253B98C7001CA19F /* FlyersListResponse.swift in Sources */,
 				A7C44C04253AA7BC0066E4D2 /* AppDelegate.swift in Sources */,
 				A78C6348253C4E99009B934D /* FlyersCollectionViewManager.swift in Sources */,
