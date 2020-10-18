@@ -12,6 +12,8 @@ class FlyersCollectionViewManager: NSObject, UICollectionViewDelegateFlowLayout,
     
     var dataSource: [FlyerCellViewState] = []
     
+    var didSelectItem: ((Int)->())?
+    
     func collectionView(_ collectionView: UICollectionView, numberOfItemsInSection section: Int) -> Int {
         return dataSource.count
     }
@@ -30,5 +32,9 @@ class FlyersCollectionViewManager: NSObject, UICollectionViewDelegateFlowLayout,
         let width:CGFloat = (collectionView.frame.size.width - horizontalSpace) / 2.0
         let height = (collectionView.frame.size.height - verticalSpace) / 2.0
         return CGSize(width: width, height: height)
+    }
+    
+    func collectionView(_ collectionView: UICollectionView, didSelectItemAt indexPath: IndexPath) {
+        didSelectItem?(indexPath.item)
     }
 }

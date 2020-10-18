@@ -109,23 +109,74 @@
             </objects>
             <point key="canvasLocation" x="2" y="-166"/>
         </scene>
-        <!--View Controller-->
+        <!--Flyer Detail View Controller-->
         <scene sceneID="Tkb-uq-hGq">
             <objects>
-                <viewController id="PJI-ZB-2tG" sceneMemberID="viewController">
+                <viewController storyboardIdentifier="FlyerDetailViewController" id="PJI-ZB-2tG" customClass="FlyerDetailViewController" customModule="FlyersDisplayer" customModuleProvider="target" sceneMemberID="viewController">
                     <view key="view" contentMode="scaleToFill" id="rbj-0U-9Kg">
                         <rect key="frame" x="0.0" y="0.0" width="414" height="896"/>
                         <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
+                        <subviews>
+                            <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="XyV-VN-KfK">
+                                <rect key="frame" x="20" y="114" width="374" height="728"/>
+                                <subviews>
+                                    <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Label" textAlignment="center" lineBreakMode="tailTruncation" numberOfLines="0" baselineAdjustment="alignBaselines" minimumScaleFactor="0.5" translatesAutoresizingMaskIntoConstraints="NO" id="hFR-DD-02z">
+                                        <rect key="frame" x="93.666666666666686" y="182" width="187" height="364"/>
+                                        <fontDescription key="fontDescription" type="system" pointSize="20"/>
+                                        <nil key="textColor"/>
+                                        <nil key="highlightedColor"/>
+                                    </label>
+                                    <imageView clipsSubviews="YES" userInteractionEnabled="NO" contentMode="scaleAspectFit" horizontalHuggingPriority="251" verticalHuggingPriority="251" translatesAutoresizingMaskIntoConstraints="NO" id="w0s-cj-ibU">
+                                        <rect key="frame" x="0.0" y="0.0" width="374" height="728"/>
+                                    </imageView>
+                                </subviews>
+                                <color key="backgroundColor" systemColor="systemBackgroundColor"/>
+                                <constraints>
+                                    <constraint firstItem="w0s-cj-ibU" firstAttribute="leading" secondItem="XyV-VN-KfK" secondAttribute="leading" id="6x1-E6-T5N"/>
+                                    <constraint firstItem="hFR-DD-02z" firstAttribute="width" secondItem="w0s-cj-ibU" secondAttribute="width" multiplier="0.5" id="NPK-O5-Qk1"/>
+                                    <constraint firstAttribute="trailing" secondItem="w0s-cj-ibU" secondAttribute="trailing" id="QQd-3s-zvf"/>
+                                    <constraint firstItem="hFR-DD-02z" firstAttribute="centerY" secondItem="XyV-VN-KfK" secondAttribute="centerY" id="Tup-8I-9Md"/>
+                                    <constraint firstItem="w0s-cj-ibU" firstAttribute="top" secondItem="XyV-VN-KfK" secondAttribute="top" id="XUq-3t-8ky"/>
+                                    <constraint firstAttribute="bottom" secondItem="w0s-cj-ibU" secondAttribute="bottom" id="e3H-bH-9Q9"/>
+                                    <constraint firstItem="hFR-DD-02z" firstAttribute="height" secondItem="w0s-cj-ibU" secondAttribute="height" multiplier="0.5" id="pIq-iD-F7O"/>
+                                    <constraint firstItem="hFR-DD-02z" firstAttribute="centerX" secondItem="XyV-VN-KfK" secondAttribute="centerX" id="rwq-PN-myb"/>
+                                </constraints>
+                            </view>
+                            <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="yfM-qi-GhQ">
+                                <rect key="frame" x="354" y="54" width="40" height="40"/>
+                                <constraints>
+                                    <constraint firstAttribute="width" secondItem="yfM-qi-GhQ" secondAttribute="height" multiplier="1:1" id="I6p-aM-Jvh"/>
+                                    <constraint firstAttribute="height" constant="40" id="cWb-fP-1YP"/>
+                                </constraints>
+                                <state key="normal" image="icon_close"/>
+                                <connections>
+                                    <action selector="didTapOnCloseButton:" destination="PJI-ZB-2tG" eventType="touchUpInside" id="mbv-u9-IQu"/>
+                                </connections>
+                            </button>
+                        </subviews>
                         <viewLayoutGuide key="safeArea" id="vGk-Lm-EOd"/>
                         <color key="backgroundColor" systemColor="systemBackgroundColor"/>
+                        <constraints>
+                            <constraint firstItem="yfM-qi-GhQ" firstAttribute="top" secondItem="vGk-Lm-EOd" secondAttribute="top" constant="10" id="5XC-S3-5zi"/>
+                            <constraint firstItem="XyV-VN-KfK" firstAttribute="leading" secondItem="vGk-Lm-EOd" secondAttribute="leading" constant="20" id="Tf5-at-2ps"/>
+                            <constraint firstItem="XyV-VN-KfK" firstAttribute="top" secondItem="yfM-qi-GhQ" secondAttribute="bottom" constant="20" id="VPB-XC-Dhn"/>
+                            <constraint firstItem="vGk-Lm-EOd" firstAttribute="bottom" secondItem="XyV-VN-KfK" secondAttribute="bottom" constant="20" id="eEG-gf-PUX"/>
+                            <constraint firstItem="vGk-Lm-EOd" firstAttribute="trailing" secondItem="yfM-qi-GhQ" secondAttribute="trailing" constant="20" id="g7X-iO-Lc9"/>
+                            <constraint firstItem="vGk-Lm-EOd" firstAttribute="trailing" secondItem="XyV-VN-KfK" secondAttribute="trailing" constant="20" id="ptW-RI-gwE"/>
+                        </constraints>
                     </view>
+                    <connections>
+                        <outlet property="flyerImageView" destination="w0s-cj-ibU" id="7iq-Nd-ixm"/>
+                        <outlet property="titleLabel" destination="hFR-DD-02z" id="YE9-cv-buk"/>
+                    </connections>
                 </viewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="dQs-Vd-9dj" userLabel="First Responder" customClass="UIResponder" sceneMemberID="firstResponder"/>
             </objects>
-            <point key="canvasLocation" x="964" y="-163"/>
+            <point key="canvasLocation" x="963.76811594202911" y="-163.39285714285714"/>
         </scene>
     </scenes>
     <resources>
+        <image name="icon_close" width="102" height="101"/>
         <image name="icon_eye_fill" width="134" height="84"/>
         <systemColor name="systemBackgroundColor">
             <color white="1" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>

@@ -33,6 +33,9 @@ class FlyersDisplayerViewController: UIViewController, Storyboarded, LoaderDispl
     }
     
     private func setupCollectionView() {
+        collectionViewManager.didSelectItem = { [weak self] index in
+            self?.presenter.didSelectItem(at: index)
+        }
         flyersCollectionView.dataSource = collectionViewManager
         flyersCollectionView.delegate = collectionViewManager
         flyersCollectionView.reloadData()

@@ -8,7 +8,9 @@
 import Foundation
 
 protocol FlyersDisplayerPresenterProtocol: AnyObject {
+    
     func loadFlyers()
+    func didSelectItem(at index: Int)
 }
 
 class FlyersDisplayerPresenter {
@@ -18,7 +20,10 @@ class FlyersDisplayerPresenter {
     weak var view: FlyersDisplayerView!
     let interactor: FlyersDisplayerInteractorProtocol
     
-    var viewState = FlyersDisplayerViewState()
+    private var viewState = FlyersDisplayerViewState()
+    private var identifiers: [Int] = []
+    
+    var goToFlyerDetail: ((Flyer)->())?
     
     init(view: FlyersDisplayerView, interactor: FlyersDisplayerInteractorProtocol) {
         self.view = view
@@ -32,18 +37,34 @@ class FlyersDisplayerPresenter {
 
 extension FlyersDisplayerPresenter: FlyersDisplayerPresenterProtocol {
     
+    func didSelectItem(at index: Int) {
+        let flyer = interactor.getFlyer(for: identifiers[index])
+        goToFlyerDetail?(flyer)
+    }
+    
     func loadFlyers() {
         view.showLoader()
         interactor.loadFlyersData { [weak self] result in
             self?.view.hideLoader()
             switch result {
             case .success(let flyers):
-                self?.viewState.cellViewStates = flyers.map(FlyerCellViewState.init)
+                self?.mapViewStates(with: flyers)
                 self?.updateView()
                 break
             case .failure(let error):
                 break
             }
         }
+    }
+    
+    private func mapViewStates(with models: [Flyer]) {
+        var cellViewStates: [FlyerCellViewState] = []
+        var mappedIdentifiers: [Int] = []
+        for model in models {
+            cellViewStates.append(FlyerCellViewState(from: model))
+            mappedIdentifiers.append(model.id)
+        }
+        viewState.cellViewStates = cellViewStates
+        identifiers = mappedIdentifiers
     }
 }

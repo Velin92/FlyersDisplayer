@@ -15,6 +15,7 @@ enum FlyerDisplayerError: Error {
 protocol FlyersDisplayerInteractorProtocol: AnyObject {
     
     func loadFlyersData(completion: @escaping ((Result<[Flyer], FlyerDisplayerError>)->Void))
+    func getFlyer(for identifier: Int) -> Flyer
 }
 
 class FlyersDisplayerInteractor {
@@ -56,5 +57,12 @@ extension FlyersDisplayerInteractor: FlyersDisplayerInteractorProtocol {
                      retailerId: retailerId,
                      title: title,
                      imageUrl: "\(Constants.imagesBaseUrlPath)\(id)@3x.jpg")
+    }
+    
+    func getFlyer(for identifier: Int) -> Flyer {
+        guard let flyer = flyers.first(where: {$0.id == identifier}) else {
+            fatalError("Identifier: \(identifier) doesn't exist")
+        }
+        return flyer
     }
 }
