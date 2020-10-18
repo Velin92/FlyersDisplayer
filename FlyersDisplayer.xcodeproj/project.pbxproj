@@ -25,6 +25,8 @@
 		A78C636F253C6D90009B934D /* FlyerViewState.swift in Sources */ = {isa = PBXBuildFile; fileRef = A78C636E253C6D90009B934D /* FlyerViewState.swift */; };
 		A78C6375253C6FD3009B934D /* Constants.swift in Sources */ = {isa = PBXBuildFile; fileRef = A78C6374253C6FD3009B934D /* Constants.swift */; };
 		A78C6382253C83AF009B934D /* FlyerDetailViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = A78C6381253C83AF009B934D /* FlyerDetailViewController.swift */; };
+		A78C6387253C9029009B934D /* FlyerDetailPresenter.swift in Sources */ = {isa = PBXBuildFile; fileRef = A78C6386253C9029009B934D /* FlyerDetailPresenter.swift */; };
+		A78C638C253C912C009B934D /* FlyerDetailInteractor.swift in Sources */ = {isa = PBXBuildFile; fileRef = A78C638B253C912C009B934D /* FlyerDetailInteractor.swift */; };
 		A7C44C04253AA7BC0066E4D2 /* AppDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = A7C44C03253AA7BC0066E4D2 /* AppDelegate.swift */; };
 		A7C44C0B253AA7BC0066E4D2 /* Main.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = A7C44C09253AA7BC0066E4D2 /* Main.storyboard */; };
 		A7C44C0D253AA7BE0066E4D2 /* Assets.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = A7C44C0C253AA7BE0066E4D2 /* Assets.xcassets */; };
@@ -73,6 +75,8 @@
 		A78C636E253C6D90009B934D /* FlyerViewState.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = FlyerViewState.swift; sourceTree = "<group>"; };
 		A78C6374253C6FD3009B934D /* Constants.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Constants.swift; sourceTree = "<group>"; };
 		A78C6381253C83AF009B934D /* FlyerDetailViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = FlyerDetailViewController.swift; sourceTree = "<group>"; };
+		A78C6386253C9029009B934D /* FlyerDetailPresenter.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = FlyerDetailPresenter.swift; sourceTree = "<group>"; };
+		A78C638B253C912C009B934D /* FlyerDetailInteractor.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = FlyerDetailInteractor.swift; sourceTree = "<group>"; };
 		A7C44C00253AA7BC0066E4D2 /* FlyersDisplayer.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = FlyersDisplayer.app; sourceTree = BUILT_PRODUCTS_DIR; };
 		A7C44C03253AA7BC0066E4D2 /* AppDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AppDelegate.swift; sourceTree = "<group>"; };
 		A7C44C0A253AA7BC0066E4D2 /* Base */ = {isa = PBXFileReference; lastKnownFileType = file.storyboard; name = Base; path = Base.lproj/Main.storyboard; sourceTree = "<group>"; };
@@ -157,6 +161,7 @@
 			isa = PBXGroup;
 			children = (
 				A70F7C35253BB460001CA19F /* FlyersDisplayerPresenter.swift */,
+				A78C6386253C9029009B934D /* FlyerDetailPresenter.swift */,
 			);
 			path = Presenters;
 			sourceTree = "<group>";
@@ -165,6 +170,7 @@
 			isa = PBXGroup;
 			children = (
 				A70F7C3E253BB5C7001CA19F /* FlyersDisplayerInteractor.swift */,
+				A78C638B253C912C009B934D /* FlyerDetailInteractor.swift */,
 			);
 			path = Interactor;
 			sourceTree = "<group>";
@@ -460,6 +466,7 @@
 			isa = PBXSourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				A78C6387253C9029009B934D /* FlyerDetailPresenter.swift in Sources */,
 				A78C6362253C6402009B934D /* FlyerCellViewState.swift in Sources */,
 				A70F7C36253BB460001CA19F /* FlyersDisplayerPresenter.swift in Sources */,
 				A78C633E253C4979009B934D /* UICollectionView+dequeueReusableCell.swift in Sources */,
@@ -475,6 +482,7 @@
 				A7C44C04253AA7BC0066E4D2 /* AppDelegate.swift in Sources */,
 				A78C6348253C4E99009B934D /* FlyersCollectionViewManager.swift in Sources */,
 				A7C44C4A253ABCD30066E4D2 /* MainCoordinator.swift in Sources */,
+				A78C638C253C912C009B934D /* FlyerDetailInteractor.swift in Sources */,
 				A7C44C56253ABFCE0066E4D2 /* Storyboarded.swift in Sources */,
 				A78C6375253C6FD3009B934D /* Constants.swift in Sources */,
 				A78C6343253C4D0F009B934D /* LoaderDisplayer.swift in Sources */,

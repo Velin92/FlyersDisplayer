@@ -29,6 +29,11 @@ class MainCoordinator {
     
     func goToFlyerDetail(model: Flyer) {
         let vc = FlyerDetailViewController.instantiate()
-        navigationController.present(vc, animated: true, completion: nil)
+        let interactor = FlyerDetailInteractor(model: model)
+        let presenter = FlyerDetailPresenter(view: vc, interactor: interactor)
+        vc.presenter = presenter
+        DispatchQueue.main.async {
+            self.navigationController.present(vc, animated: true, completion: nil)
+        }
     }
 }
